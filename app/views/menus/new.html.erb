@@ -1,0 +1,19 @@
+<h3>献立登録</h3>
+<%= form_with model: @menu, local: true do |f| %>
+  <div class="">
+  料理の名前
+  </div>
+  <%= f.text_field :title, class:"",  placeholder:"例：シチュー" %>
+  <div class="">
+  レシピURL
+  </div>
+  <%= f.text_field :recipe_url, class:"",  placeholder:"例：https://www.kurashiru.com/recipes/~" %>
+  <div class="">
+  メモ
+  </div>
+  <%= f.text_field :memo, class:"",  placeholder:"例：倍量で作成" %>
+  <div class="">
+    <%= f.submit "登録する" ,class:"" %>
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+<% end %>
