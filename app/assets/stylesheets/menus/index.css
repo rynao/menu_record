@@ -1,0 +1,60 @@
+.title {
+  font-size: 40px;
+  text-align: center;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.header-link {
+  font-size: 18px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.logout-link, .menu-input-link {
+  text-decoration: none;
+  margin: 10px;
+}
+
+.menu-lists {
+}
+
+.menu-list {
+  height: 50px;
+  margin: auto;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #424242;
+}
+
+.menu-title {
+  width: 400px;
+  background-color: snow;
+  padding: 10px 0 ;
+  font-weight: bold;
+}
+
+.recipe-url {
+  width: 400px;
+  background-color: snow;
+  padding: 10px;
+  font-weight: bold;
+}
+
+.menu-memo {
+  width: 400px;
+  background-color: snow;
+  padding: 10px 0 ;
+
+}
+
+.menu-link, .recipe-link {
+  text-decoration: none;
+  color: #424242;
+  font-weight: bold;
+}
+
