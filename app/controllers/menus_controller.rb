@@ -1,5 +1,6 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_params, only: [:show, :edit, :update]
   def index
     @menus = Menu.all
   end
@@ -18,12 +19,26 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @menu.update(menu_params)
+      redirect_to menu_path(@menu.id)
+    else
+      render :edit
+    end
   end
 
   private
 
   def menu_params
     params.require(:menu).permit(:title, :recipe_url, :memo).merge(user_id: current_user.id)
+  end
+
+  def find_params
+    @menu = Menu.find(params[:id])
   end
 end
