@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :menus
+  has_many :cooking_records
 end
