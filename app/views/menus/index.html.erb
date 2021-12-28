@@ -1,3 +1,23 @@
-献立一覧
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %>
-<%= link_to '献立登録', new_menu_path, class: "" %>
+<h2 class='title'>献立一覧</h2>
+
+<ul class='header-link'>
+  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout-link' %></li>
+  <li><%= link_to '献立登録', new_menu_path, class: 'menu-input-link' %></li>
+</ul>
+
+<ul class='menu-lists'>
+  <% @menus.each do |menu| %>
+  <li class='menu-list'>
+    <div class='menu-title'>
+    <%= link_to menu.title, '#', class:'menu-link' %>
+    </div>
+    <div class='recipe-url'>
+    <%= link_to 'レシピURL', "#{menu.recipe_url}", class:'recipe-link' %>
+    </div>
+    <div class='menu-memo'>
+    <%= menu.memo %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
