@@ -1,19 +1,21 @@
-<h3>献立登録</h3>
+<h2 class='title'>献立登録</h2>
+<div class='input-form'>
 <%= form_with model: @menu, local: true do |f| %>
-  <div class="">
+  <div class='input-label'>
   料理の名前
   </div>
-  <%= f.text_field :title, class:"",  placeholder:"例：シチュー" %>
-  <div class="">
+  <%= f.text_field :title, class:'input-title',  placeholder:"例：シチュー" %>
+  <div class='input-label'>
   レシピURL
   </div>
-  <%= f.text_field :recipe_url, class:"",  placeholder:"例：https://www.kurashiru.com/recipes/~" %>
-  <div class="">
+  <%= f.text_field :recipe_url, class:'input-recipe-url',  placeholder:"例：https://www.kurashiru.com/recipes/~" %>
+  <div class='input-label'>
   メモ
   </div>
-  <%= f.text_field :memo, class:"",  placeholder:"例：倍量で作成" %>
+  <%= f.text_field :memo, class:'input-memo',  placeholder:"例：倍量で作成" %>
   <div class="">
-    <%= f.submit "登録する" ,class:"" %>
-    <%=link_to 'もどる', root_path, class:"back-btn" %>
+    <%= f.submit "登録する" ,class:'submit-btn' %>
+    <%=link_to 'もどる', root_path, class:'back-btn' %>
   </div>
 <% end %>
+</div>

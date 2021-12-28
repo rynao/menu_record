@@ -1,0 +1,20 @@
+<h2 class='title'>献立詳細</h2>
+
+<ul class='header-link'>
+  <li><%= link_to '一覧へ戻る', menus_path, class: 'menu-index-link' %></li>
+</ul>
+
+<ul class='menu-lists'>
+  <li class='menu-list'>
+    <div class='menu-title'>
+    <%= @menu.title %>
+    </div>
+    <div class='recipe-url'>
+    <%= link_to 'レシピURL', "#{@menu.recipe_url}", class:'recipe-link' %>
+    </div>
+    <div class='menu-memo'>
+    <%= @menu.memo %>
+    </div>
+  </li>
+</ul>
+

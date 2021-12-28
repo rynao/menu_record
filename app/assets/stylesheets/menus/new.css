@@ -1,0 +1,27 @@
+.input-form {
+  width: 80vw;
+  margin: auto;
+  padding: 20px;
+  background-color: snow;
+  display: flex;
+  justify-content: center;
+}
+
+.input-title, .input-recipe-url, .input-memo {
+  height: 40px;
+  width: 600px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  margin: 5px;
+}
+
+.submit-btn {
+  padding: 5px 10px;
+  margin-right: 20px;
+  border: none;
+  background-color: #666666;
+  color: white;
+}

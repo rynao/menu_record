@@ -9,7 +9,7 @@
   <% @menus.each do |menu| %>
   <li class='menu-list'>
     <div class='menu-title'>
-    <%= link_to menu.title, '#', class:'menu-link' %>
+    <%= link_to menu.title, menu_path(menu.id), class:'menu-link' %>
     </div>
     <div class='recipe-url'>
     <%= link_to 'レシピURL', "#{menu.recipe_url}", class:'recipe-link' %>
