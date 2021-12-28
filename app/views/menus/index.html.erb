@@ -1,8 +1,9 @@
 <h2 class='title'>献立一覧</h2>
 
 <ul class='header-link'>
+  <li><%= link_to '献立を記録する', new_cooking_record_path, class: 'record-input-link' %></li>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout-link' %></li>
-  <li><%= link_to '献立登録', new_menu_path, class: 'menu-input-link' %></li>
+  <li><%= link_to '新しい献立を登録する', new_menu_path, class: 'menu-input-link' %></li>
 </ul>
 
 <ul class='menu-lists'>

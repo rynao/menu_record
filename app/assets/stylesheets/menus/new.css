@@ -7,7 +7,7 @@
   justify-content: center;
 }
 
-.input-title, .input-recipe-url, .input-memo {
+.input-title, .input-recipe-url, .input-memo, .input-cooking-date {
   height: 40px;
   width: 600px;
   border: none;

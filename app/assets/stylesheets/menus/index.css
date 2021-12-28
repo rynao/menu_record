@@ -13,9 +13,9 @@
   list-style: none;
 }
 
-.logout-link, .menu-input-link {
+.logout-link, .menu-input-link, .record-input-link {
   text-decoration: none;
-  margin: 10px;
+  margin: 20px;
 }
 
 .menu-lists {
