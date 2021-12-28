@@ -1,0 +1,21 @@
+<h2 class='title'>献立編集</h2>
+<div class='input-form'>
+<%= form_with model: @menu, local: true do |f| %>
+  <div class='input-label'>
+  料理の名前
+  </div>
+  <%= f.text_field :title, class:'input-title',  placeholder:"例：シチュー" %>
+  <div class='input-label'>
+  レシピURL
+  </div>
+  <%= f.text_field :recipe_url, class:'input-recipe-url',  placeholder:"例：https://www.kurashiru.com/recipes/~" %>
+  <div class='input-label'>
+  メモ
+  </div>
+  <%= f.text_field :memo, class:'input-memo',  placeholder:"例：倍量で作成" %>
+  <div class="">
+    <%= f.submit "登録する" ,class:'submit-btn' %>
+    <%=link_to 'もどる', menu_path(@menu.id), class:'back-btn' %>
+  </div>
+<% end %>
+</div>
