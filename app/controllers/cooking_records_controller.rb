@@ -1,6 +1,7 @@
 class CookingRecordsController < ApplicationController
   before_action :authenticate_user!
   def index
+    @cooking_records = CookingRecord.includes(:menu).order(cooking_date: "DESC")
   end
 
   def new

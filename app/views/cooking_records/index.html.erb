@@ -1,1 +1,21 @@
-献立記録一覧
+<h2 class='title'>献立記録一覧</h2>
+
+<ul class='header-link'>
+  <li><%= link_to '献立を記録する', new_cooking_record_path, class: 'record-input-link' %></li>
+  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout-link' %></li>
+  <li><%= link_to '新しい献立を登録する', new_menu_path, class: 'menu-input-link' %></li>
+</ul>
+
+<ul class='cooking-record-lists'>
+  <% @cooking_records.each do |cooking_record| %>
+  <li class='cooking-record-list'>
+    <div class='cooking-date'>
+      <%= cooking_record.cooking_date %>
+    </div>
+    <div class='cooking-menu-title'>
+    <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'menu-link' %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
