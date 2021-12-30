@@ -12,7 +12,7 @@
   <% @cooking_records.each do |cooking_record| %>
   <li class='cooking-record-list'>
     <div class='cooking-date'>
-      <%= cooking_record.cooking_date %>
+      <%= link_to cooking_record.cooking_date, cooking_record_path(cooking_record.id) %>
     </div>
     <div class='cooking-menu-title'>
     <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'menu-link' %>

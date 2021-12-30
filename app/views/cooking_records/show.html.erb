@@ -1,0 +1,19 @@
+<h2 class='title'>献立の記録</h2>
+
+<ul class='header-link'>
+  <li><%= link_to '編集する', edit_cooking_record_path, class: 'menu-index-link' %></li>
+  <li><%= link_to '削除する', cooking_record_path, method: :delete, class: 'menu-index-link' %></li>
+  <li><%= link_to '一覧へ戻る', cooking_records_path, class: 'menu-index-link' %></li>
+</ul>
+
+<ul class='menu-lists'>
+  <li class='menu-list'>
+    <div class='menu-title'>
+    <%= @cooking_record.cooking_date %>
+    </div>
+    <div class='menu-title'>
+    <%= @cooking_record.menu.title %>
+    </div>
+  </li>
+</ul>
+
