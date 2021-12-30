@@ -1,8 +1,8 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_params, only: [:show, :edit, :update]
+  before_action :find_params, only: [:show, :edit, :update, :destroy]
   def index
-    @menus = Menu.all
+    @menus = Menu.all.order(:title)
   end
 
   def new
@@ -29,6 +29,14 @@ class MenusController < ApplicationController
       redirect_to menu_path(@menu.id)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @menu.destroy
+      redirect_to root_path
+    else
+      render :show
     end
   end
 
