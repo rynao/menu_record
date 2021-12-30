@@ -1,5 +1,6 @@
 class CookingRecordsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_params, only: [:show, :edit, :update, :destroy]
   def index
     @cooking_records = current_user.cooking_records.includes(:menu).order(cooking_date: "DESC")
   end
@@ -17,9 +18,35 @@ class CookingRecordsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @cooking_record.update(cooking_record_params)
+      redirect_to cooking_record_path(@cooking_record.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    if @cooking_record.destroy
+      redirect_to cooking_records_path
+    else
+      render :show
+    end
+  end
+
   private
 
   def cooking_record_params
     params.require(:cooking_record).permit(:cooking_date).merge(user_id: current_user.id, menu_id: params[:menu_id])
+  end
+
+  def find_params
+    @cooking_record = CookingRecord.find(params[:id])
   end
 end
