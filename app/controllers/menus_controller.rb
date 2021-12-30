@@ -34,7 +34,7 @@ class MenusController < ApplicationController
 
   def destroy
     if @menu.destroy
-      redirect_to root_path
+      redirect_to menus_path
     else
       render :show
     end
