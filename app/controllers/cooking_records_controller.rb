@@ -2,7 +2,7 @@ class CookingRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_params, only: [:show, :edit, :update, :destroy]
   def index
-    @cooking_records = current_user.cooking_records.includes(:menu).order(cooking_date: "DESC")
+    @cooking_records = current_user.cooking_records.includes(:menu).order(start_time: "DESC")
   end
 
   def new
@@ -26,7 +26,7 @@ class CookingRecordsController < ApplicationController
 
   def update
     if @cooking_record.update(cooking_record_params)
-      redirect_to cooking_record_path(@cooking_record.id)
+      redirect_to cooking_record_path(@cooking_record.id), notice:"編集しました"
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class CookingRecordsController < ApplicationController
 
   def destroy
     if @cooking_record.destroy
-      redirect_to cooking_records_path
+      redirect_to cooking_records_path, notice:"削除しました"
     else
       render :show
     end
@@ -43,7 +43,7 @@ class CookingRecordsController < ApplicationController
   private
 
   def cooking_record_params
-    params.require(:cooking_record).permit(:cooking_date).merge(user_id: current_user.id, menu_id: params[:menu_id])
+    params.require(:cooking_record).permit(:start_time).merge(user_id: current_user.id, menu_id: params[:menu_id])
   end
 
   def find_params
