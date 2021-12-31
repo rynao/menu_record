@@ -10,25 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_28_222105) do
+ActiveRecord::Schema.define(version: 2021_12_31_080342) do
 
   create_table "cooking_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.date "cooking_date", null: false
+    t.date "start_time", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "menu_id"
     t.index ["menu_id"], name: "index_cooking_records_on_menu_id"
     t.index ["user_id"], name: "index_cooking_records_on_user_id"
-  end
-
-  create_table "menu_cooking_records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "menu_id", null: false
-    t.bigint "cooking_record_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["cooking_record_id"], name: "index_menu_cooking_records_on_cooking_record_id"
-    t.index ["menu_id"], name: "index_menu_cooking_records_on_menu_id"
   end
 
   create_table "menus", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,7 +47,5 @@ ActiveRecord::Schema.define(version: 2021_12_28_222105) do
 
   add_foreign_key "cooking_records", "menus"
   add_foreign_key "cooking_records", "users"
-  add_foreign_key "menu_cooking_records", "cooking_records"
-  add_foreign_key "menu_cooking_records", "menus"
   add_foreign_key "menus", "users"
 end
