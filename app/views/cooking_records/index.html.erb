@@ -1,19 +1,18 @@
-<h2 class='title'>献立の記録</h2>
-
 <ul class='header-link'>
   <li><%= link_to '献立を記録する', new_cooking_record_path, class: 'record-input-link' %></li>
   <li><%= link_to 'レシピ一覧', menus_path, class: 'menu-index-link' %></li>
   <li><%= link_to '新しいレシピを登録する', new_menu_path, class: 'menu-input-link' %></li>
   <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout-link' %></li>
-
 </ul>
+
+<h2 class='title'>作った記録</h2>
 
 <%= month_calendar events: @cooking_records do |date, cooking_records| %>
   <%= date.day %>
 
   <% cooking_records.each do |cooking_record| %>
     <div>
-      <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'menu-link' %>
+      <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'calendar-menu-link' %>
     </div>
   <% end %>
 <% end %>
