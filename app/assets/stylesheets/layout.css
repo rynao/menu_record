@@ -1,0 +1,32 @@
+html {
+  /* font-family: sans-serif; */
+  font-family: "游ゴシック", "YuGothic";
+}
+
+.header-link {
+  height: 50px;
+  font-size: 18px;
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.logout-link,
+.menu-index-link,
+.menu-input-link,
+.record-index-link,
+.record-input-link {
+  text-decoration: none;
+  margin: 25px;
+  color: #e3e548;
+}
+
+.title {
+  font-size: 40px;
+  color: #fff;
+  background-color: #e3e548;
+  text-align: center;
+  margin: 20px 0;
+}
