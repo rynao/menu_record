@@ -43,7 +43,7 @@ class MenusController < ApplicationController
   private
 
   def menu_params
-    params.require(:menu).permit(:title, :recipe_url, :memo).merge(user_id: current_user.id)
+    params.require(:menu).permit(:title, :recipe_url, :memo, :image).merge(user_id: current_user.id)
   end
 
   def find_params
