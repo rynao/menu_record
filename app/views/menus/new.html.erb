@@ -13,6 +13,10 @@
   メモ
   </div>
   <%= f.text_field :memo, class:'input-memo',  placeholder:"例：倍量で作成" %>
+  <div class='input-label'>
+  料理の画像
+  </div>
+  <%= f.file_field :image, class:'input-image' %>
   <div class="">
     <%= f.submit "登録する" ,class:'submit-btn' %>
     <%=link_to 'もどる', root_path, class:'back-btn' %>

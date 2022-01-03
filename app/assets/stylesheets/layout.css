@@ -5,8 +5,8 @@ html {
 
 .header-link {
   height: 50px;
-  font-size: 18px;
-  margin: 5px;
+  font-size: 20px;
+  margin: 40px auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,5 +28,10 @@ html {
   color: #fff;
   background-color: #e3e548;
   text-align: center;
-  margin: 20px 0;
+  margin: 10px 0;
+}
+
+.wrapper {
+  margin: auto;
+  text-align: center;
 }

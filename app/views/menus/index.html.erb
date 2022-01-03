@@ -7,19 +7,25 @@
 
 <h2 class='title'>献立一覧</h2>
 
-<ul class='menu-lists'>
-  <% @menus.each do |menu| %>
-  <li class='menu-list'>
-    <div class='menu-title'>
-    <%= link_to menu.title, menu_path(menu.id), class:'menu-link' %>
+<div class='inner'>
+  <div class='menu-lists'>
+    <% @menus.each do |menu| %>
+    <div class='menu-list'>
+    <% if menu.image.attached? %>
+      <%= image_tag menu.image.variant(resize: '200x200'), class:'menu-image' %>
+    <% else %>
+      <%= image_tag 'alt_menu_image.png', size: '200x200', class:'menu-image' %>
+    <% end %>
+      <div class='menu-title'>
+        <%= link_to menu.title, menu_path(menu.id), class:'menu-link' %>
+      </div>
+      <div class='recipe-url'>
+        <%= link_to 'レシピURL', "#{menu.recipe_url}", class:'recipe-link' %>
+      </div>
+      <div class='menu-memo'>
+        <%= menu.memo %>
+      </div>
     </div>
-    <div class='recipe-url'>
-    <%= link_to 'レシピURL', "#{menu.recipe_url}", class:'recipe-link' %>
-    </div>
-    <div class='menu-memo'>
-    <%= menu.memo %>
-    </div>
-  </li>
-  <% end %>
-</ul>
-
+    <% end %>
+  </div>
+</div>
