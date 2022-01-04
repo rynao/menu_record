@@ -47,6 +47,6 @@ class CookingRecordsController < ApplicationController
   end
 
   def find_params
-    @cooking_record = CookingRecord.find(params[:id])
+    @cooking_record = CookingRecord.find_by(start_time: params[:id])
   end
 end
