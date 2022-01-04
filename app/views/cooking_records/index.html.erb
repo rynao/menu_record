@@ -8,7 +8,7 @@
 <h2 class='title'>作った記録</h2>
 
 <%= month_calendar events: @cooking_records do |date, cooking_records| %>
-  <%= date.day %>
+  <%= link_to date.day, cooking_record_path(date)  %>
 
   <% cooking_records.each do |cooking_record| %>
     <div>
