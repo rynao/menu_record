@@ -1,31 +1,47 @@
-<ul class='header-link'>
-  <li><%= link_to '献立を記録する', new_cooking_record_path, class: 'record-input-link' %></li>
-  <li><%= link_to '献立記録', cooking_records_path, class: 'record-index-link' %></li>
-  <li><%= link_to '新しい献立を登録する', new_menu_path, class: 'menu-input-link' %></li>
-  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout-link' %></li>
-</ul>
-
-<h2 class='title'>献立一覧</h2>
-
-<div class='inner'>
-  <div class='menu-lists'>
-    <% @menus.each do |menu| %>
-    <div class='menu-list'>
-    <% if menu.image.attached? %>
-      <%= image_tag menu.image.variant(resize: '200x200'), class:'menu-image' %>
-    <% else %>
-      <%= image_tag 'alt_menu_image.png', size: '200x200', class:'menu-image' %>
-    <% end %>
-      <div class='menu-title'>
-        <%= link_to menu.title, menu_path(menu.id), class:'menu-link' %>
+<div class='container'>
+  <div class='row'>
+    <ul class='nav justify-content-center'>
+      <div class='nav item'>
+        <li><%= link_to '献立を記録する', new_cooking_record_path, class: 'nav-link ' %></li>
       </div>
-      <div class='recipe-url'>
-        <%= link_to 'レシピURL', "#{menu.recipe_url}", class:'recipe-link' %>
+      <div class='nav item'>
+        <li><%= link_to '献立記録', cooking_records_path, class: 'nav-link' %></li>
       </div>
-      <div class='menu-memo'>
-        <%= menu.memo %>
+      <div class='nav item'>
+        <li><%= link_to '新しい献立を登録する', new_menu_path, class: 'nav-link' %></li>
+      </div>
+      <div class='nav item'>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link' %></li>
+      </div>
+    </ul>
+
+    <h2 class='title'>献立一覧</h2>
+
+    <div class='inner'>
+      <div class='row row-cols-1 row-cols-md-3 g-4'>
+        <% @menus.each do |menu| %>
+        <div class='col'>
+          <div class='card'>
+            <% if menu.image.attached? %>
+              <%= image_tag menu.image.variant(resize: '200x200'), class:'card-img-top' %>
+            <% else %>
+              <%= image_tag 'alt_menu_image.png', class:'card-img-top' %>
+            <% end %>
+            <div class='card-body'>
+              <h2 class='card-title'>
+                <%= link_to menu.title, menu_path(menu.id), class:'menu-link' %>
+              </h2>
+              <div class='recipe-url'>
+                <%= link_to 'レシピURL', "#{menu.recipe_url}", class:'recipe-link' %>
+              </div>
+              <div class='card-text text-muted'>
+                <%= menu.memo %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>
-    <% end %>
   </div>
 </div>

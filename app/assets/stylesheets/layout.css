@@ -1,6 +1,9 @@
 html {
   /* font-family: sans-serif; */
-  font-family: "游ゴシック", "YuGothic";
+  color: #666;
+  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  ​margin: 0;
+  letter-spacing: 0.15em;
 }
 
 .header-link {
@@ -13,7 +16,7 @@ html {
   list-style: none;
 }
 
-.logout-link,
+/* .logout-link,
 .menu-index-link,
 .menu-input-link,
 .record-index-link,
@@ -21,7 +24,7 @@ html {
   text-decoration: none;
   margin: 25px;
   color: #e3e548;
-}
+} */
 
 .title {
   font-size: 40px;
