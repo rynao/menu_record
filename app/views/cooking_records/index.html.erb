@@ -1,18 +1,28 @@
-<ul class='header-link'>
-  <li><%= link_to '献立を記録する', new_cooking_record_path, class: 'record-input-link' %></li>
-  <li><%= link_to 'レシピ一覧', menus_path, class: 'menu-index-link' %></li>
-  <li><%= link_to '新しいレシピを登録する', new_menu_path, class: 'menu-input-link' %></li>
-  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'logout-link' %></li>
-</ul>
+<nav class='navbar navbar-expand-sm mt-3 mb-3 justify-content-center sticky-top'>
+  <div class='nav item'>
+    <%= link_to '献立を記録する', new_cooking_record_path, class: 'nav-link text-white' %>
+  </div>
+  <div class='nav item'>
+    <%= link_to '献立記録', cooking_records_path, class: 'nav-link text-white' %>
+  </div>
+  <div class='nav item'>
+    <%= link_to 'レシピ一覧', menus_path, class: 'nav-link text-white' %>
+  </div>
+  <div class='nav item'>
+    <%= link_to '新しいレシピを登録する', new_menu_path, class: 'nav-link text-white' %>
+  </div>
+  <div class='nav item'>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link text-white' %>
+  </div>
+</nav>
+<div class='container mt-5'>
+  <%= month_calendar events: @cooking_records do |date, cooking_records| %>
+    <%= link_to date.day, cooking_record_path(date)  %>
 
-<h2 class='title'>作った記録</h2>
-
-<%= month_calendar events: @cooking_records do |date, cooking_records| %>
-  <%= link_to date.day, cooking_record_path(date)  %>
-
-  <% cooking_records.each do |cooking_record| %>
-    <div>
-      <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'calendar-menu-link' %>
-    </div>
+    <% cooking_records.each do |cooking_record| %>
+      <div>
+        <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'calendar-menu-link' %>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
