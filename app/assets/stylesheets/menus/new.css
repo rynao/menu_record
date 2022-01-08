@@ -1,33 +1,28 @@
-.input-form {
-  width: 50vw;
-  margin: auto;
-  padding: 20px;
-  background-color: whitesmoke;
+.card-form {
+  width: 40vw ;
+  margin: 40px auto;
+  padding: 40px 40px 20px 40px;
+}
+
+.form-control-extend {
+  margin: 5px auto 20px;
+}
+
+.img-block {
+  margin-top: 5px;
+}
+
+.btn-group {
   display: flex;
-  justify-content: center;
+  align-content: center;
 }
 
-.input-title, .input-recipe-url, .input-memo, .input-cooking-date {
-  height: 40px;
-  width: 600px;
-  border: none;
-  margin-bottom: 20px;
+.btn-block {
+  margin-top: 20px;
 }
 
-.input-label {
-  margin: 5px;
-}
-
-.input-image {
-  margin-bottom: 20px;
-}
-
-.submit-btn {
-  padding: 5px 10px;
-  margin-right: 20px;
-  border: none;
-  background-color: #666666;
-  color: white;
+.back-block {
+  margin: 30px 40px 20px 40px;
 }
 
 .back-btn {

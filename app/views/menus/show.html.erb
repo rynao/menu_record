@@ -1,25 +1,24 @@
-<ul class='header-link'>
+<%= render 'layouts/header' %>
+
+<div class='wrapper'>
+  <% if @menu.image.attached? %>
+    <%= image_tag @menu.image.variant(resize: '300x300'), class: 'menu-image' %>
+  <% else %>
+    <%= image_tag 'alt_menu_image.png', size: '200x200', class:'menu-image' %>
+  <% end %>
+  <div class='menu-title'>
+  <%= @menu.title %>
+  </div>
+  <div class='recipe-url'>
+  <%= link_to 'レシピURL', "#{@menu.recipe_url}", class:'recipe-link' %>
+  </div>
+  <div class='menu-memo'>
+  <%= @menu.memo %>
+  </div>
+</div>
+
+<ul class='footer-link'>
   <li><%= link_to '編集する', edit_menu_path, class: 'menu-index-link' %></li>
   <li><%= link_to '削除する', menu_path, method: :delete, class: 'menu-index-link' %></li>
   <li><%= link_to '一覧へ戻る', menus_path, class: 'menu-index-link' %></li>
 </ul>
-
-<h2 class='title'>献立詳細</h2>
-
-  <div class='wrapper'>
-    <% if @menu.image.attached? %>
-      <%= image_tag @menu.image.variant(resize: '300x300'), class: 'menu-image' %>
-    <% else %>
-      <%= image_tag 'alt_menu_image.png', size: '200x200', class:'menu-image' %>
-    <% end %>
-    <div class='menu-title'>
-    <%= @menu.title %>
-    </div>
-    <div class='recipe-url'>
-    <%= link_to 'レシピURL', "#{@menu.recipe_url}", class:'recipe-link' %>
-    </div>
-    <div class='menu-memo'>
-    <%= @menu.memo %>
-    </div>
-  </div>
-
