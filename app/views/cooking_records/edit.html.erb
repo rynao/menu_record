@@ -1,22 +1,26 @@
-<h2 class='title'>献立を編集する</h2>
-<div class='input-form'>
+<%= render 'layouts/header' %>
+
+<div class='card shadow card-form'>
 <%= form_with model: @cooking_record, local: true do |f| %>
-  <div class='input-label'>
-  作成した日付
+  <div class='form-group'>
+    <label>作った日</label>
+  <%= f.date_field :start_time, class:'form-control form-control-extend' %>
   </div>
-  <%= f.date_field :start_time, class:'input-cooking-date' %>
-  <div class='input-label'>
-  レシピ名
+  <div class='form-group'>
+    <label>レシピ名</label>
+    <select name='menu_id', class='form-control form-control-extend'>
+      <option value=''>レシピを選択</option>
+      <% Menu.all.each do |menu| %>
+        <option value=<%= menu.id %>><%= menu.title %></option> 
+      <% end %>
+    </select>
   </div>
-  <select name='menu_id', class='input-title'>
-    <option value=''>レシピを選択</option>
-    <% Menu.all.each do |menu| %>
-      <option value=<%= menu.id %>><%= menu.title %></option> 
-    <% end %>
-  </select>
-  <div class="">
-    <%= f.submit "更新する" ,class:'submit-btn' %>
-    <%=link_to 'もどる', cooking_records_path, class:'back-btn' %>
+  <div class='btn-group'>
+    <div class='btn-block'>
+      <%= f.submit "登録する" ,class:'btn btn-primary' %>
+    </div>
+    <div class='back-block'>
+      <%=link_to 'もどる', cooking_records_path, class:'back-btn' %>
   </div>
 <% end %>
 </div>

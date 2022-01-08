@@ -4,12 +4,12 @@
   color: #666;
 }
 
-.col {
+.col-extend {
   display: flex;
   justify-content: center;
 }
 
-.card {
+.card-extend {
   width: 16rem;
 }
 

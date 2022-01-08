@@ -1,0 +1,17 @@
+<nav class='navbar navbar-expand-sm mt-3 mb-3 justify-content-center sticky-top'>
+  <div class='nav item'>
+    <%= link_to '献立を記録する', new_cooking_record_path, class: 'nav-link text-white' %>
+  </div>
+  <div class='nav item'>
+    <%= link_to '献立記録', cooking_records_path, class: 'nav-link text-white' %>
+  </div>
+  <div class='nav item'>
+    <%= link_to 'レシピ一覧', menus_path, class: 'nav-link text-white' %>
+  </div>
+  <div class='nav item'>
+    <%= link_to '新しいレシピを登録する', new_menu_path, class: 'nav-link text-white' %>
+  </div>
+  <div class='nav item'>
+    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link text-white' %>
+  </div>
+</nav>
