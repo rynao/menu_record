@@ -9,11 +9,18 @@
   padding-top: 50px;
 }
 
-.calendar-title {
+.calendar-year {
+  font-size: 30px;
+  color: #666;
+  font-weight: bold;
+  margin-left: 40px;
+}
+
+.calendar-month {
   font-size: 50px;
   color: #666;
-  margin: 0 50px;
   font-weight: bold;
+  margin-right: 40px;
 }
 
 .calendar {
