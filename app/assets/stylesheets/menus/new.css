@@ -1,11 +1,7 @@
 .card-form {
-  width: 40vw ;
   margin: 40px auto;
   padding: 40px 40px 20px 40px;
-}
-
-.form-control-extend {
-  margin: 5px auto 20px;
+  max-width: 600px;
 }
 
 .img-block {
@@ -17,12 +13,13 @@
   align-content: center;
 }
 
-.btn-block {
-  margin-top: 20px;
+.btn-block-extend {
 }
 
 .back-block {
-  margin: 30px 40px 20px 40px;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .back-btn {

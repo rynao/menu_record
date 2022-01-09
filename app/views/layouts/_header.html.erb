@@ -1,17 +1,26 @@
-<nav class='navbar navbar-expand-sm mt-3 mb-3 justify-content-center sticky-top'>
-  <div class='nav item'>
-    <%= link_to '献立を記録する', new_cooking_record_path, class: 'nav-link text-white' %>
-  </div>
-  <div class='nav item'>
-    <%= link_to '献立記録', cooking_records_path, class: 'nav-link text-white' %>
-  </div>
-  <div class='nav item'>
-    <%= link_to 'レシピ一覧', menus_path, class: 'nav-link text-white' %>
-  </div>
-  <div class='nav item'>
-    <%= link_to '新しいレシピを登録する', new_menu_path, class: 'nav-link text-white' %>
-  </div>
-  <div class='nav item'>
-    <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link text-white' %>
+<nav class='navbar navbar-expand-md justify-content-center sticky-top'>
+  <%= link_to 'Menu Records', root_path, class: 'navbar-brand logo-block' %>
+  <button class="navbar-toggler toggler-extend" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class='nav item'>
+        <%= link_to '献立を記録する', new_cooking_record_path, class: 'nav-link text-white' %>
+      </li>
+      <li class='nav item'>
+        <%= link_to '献立記録', cooking_records_path, class: 'nav-link text-white' %>
+      </li>
+      <li class='nav item'>
+        <%= link_to 'レシピ一覧', menus_path, class: 'nav-link text-white' %>
+      </li>
+      <li class='nav item'>
+        <%= link_to '新しいレシピを登録する', new_menu_path, class: 'nav-link text-white' %>
+      </li>
+      <li class='nav item logout-block'>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link text-dark' %>
+      </li>
+    </ul>
   </div>
 </nav>

@@ -1,6 +1,6 @@
 <%= render 'layouts/header' %>
 
-<div class='card shadow card-form show-card'>
+<div class='card shadow card-form show-card container-fluid'>
   <div class ='show-img'>
     <% if @menu.image.attached? %>
       <%= image_tag @menu.image.variant(resize: '300x300'), class: 'menu-image' %>

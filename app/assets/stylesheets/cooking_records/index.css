@@ -1,5 +1,5 @@
 .simple-calendar {
-  margin: 0 80px 80px 80px;
+  margin: 0 auto 80px;
   justify-content: center;
   padding-bottom: 40px;
 }
@@ -29,7 +29,7 @@
   padding: 5px 10px;
 }
 
-table {
+table th tr {
   width: 100%;
   font-size: 14px;
   text-decoration: none;

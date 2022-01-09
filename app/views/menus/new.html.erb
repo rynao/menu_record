@@ -1,18 +1,18 @@
 <%= render 'layouts/header' %>
 
-<div class='card shadow card-form'>
+<div class='card shadow card-form container-fluid'>
 <%= form_with model: @menu, local: true do |f| %>
   <div class='form-group'>
     <label>料理の名前</label>
-    <%= f.text_field :title, class:'form-control form-control-extend',  placeholder:"例：シチュー" %>
+    <%= f.text_field :title, class:'form-control ',  placeholder:"例：シチュー" %>
   </div>
   <div class='form-group'>
     <label>レシピURL</label>
-    <%= f.text_field :recipe_url, class:'form-control form-control-extend',  placeholder:"例：https://www.kurashiru.com/recipes/~" %>
+    <%= f.text_field :recipe_url, class:'form-control ',  placeholder:"例：https://www.kurashiru.com/recipes/~" %>
   </div>
   <div class='form-group'>
     <label>メモ</label>
-    <%= f.text_field :memo, class:'form-control form-control-extend',  placeholder:"例：倍量で作成" %>
+    <%= f.text_field :memo, class:'form-control ',  placeholder:"例：倍量で作成" %>
   </div>
   <div class='form-group'>
     <label>料理の画像</label>
@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class='btn-group'>
-    <div class='btn-block'>
+    <div class='btn-block-extend'>
       <%= f.submit "登録する" ,class:'btn btn-primary' %>
     </div>
     <div class='back-block'>
