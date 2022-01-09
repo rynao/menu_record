@@ -1,14 +1,14 @@
 <%= render 'layouts/header' %>
 
-<div class='card shadow card-form'>
+<div class='card shadow card-form container-fluid'>
 <%= form_with model: @cooking_record, local: true do |f| %>
   <div class='form-group'>
     <label>作った日</label>
-  <%= f.date_field :start_time, class:'form-control form-control-extend' %>
+  <%= f.date_field :start_time, class:'form-control ' %>
   </div>
   <div class='form-group'>
     <label>レシピ名</label>
-    <select name='menu_id', class='form-control form-control-extend'>
+    <select name='menu_id', class='form-control '>
       <option value=''>レシピを選択</option>
       <% Menu.all.each do |menu| %>
         <option value=<%= menu.id %>><%= menu.title %></option> 
@@ -16,7 +16,7 @@
     </select>
   </div>
   <div class='btn-group'>
-    <div class='btn-block'>
+    <div class='btn-block-extend'>
       <%= f.submit "登録する" ,class:'btn btn-primary' %>
     </div>
     <div class='back-block'>

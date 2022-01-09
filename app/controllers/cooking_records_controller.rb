@@ -1,6 +1,7 @@
 class CookingRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_params, only: [:show, :edit, :update, :destroy]
+
   def index
     @cooking_records = current_user.cooking_records.includes(:menu).order(start_time: "DESC")
   end
@@ -19,6 +20,7 @@ class CookingRecordsController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit
@@ -47,6 +49,7 @@ class CookingRecordsController < ApplicationController
   end
 
   def find_params
-    @cooking_record = CookingRecord.find_by(start_time: params[:id])
+    @cooking_record = CookingRecord.find_by(start_time: params[:id], user_id: current_user.id)
   end
+
 end

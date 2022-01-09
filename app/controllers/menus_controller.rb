@@ -1,8 +1,10 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!
   before_action :find_params, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_user, except: [:index, :new, :create]
+
   def index
-    @menus = Menu.all.order(:title)
+    @menus = current_user.menus.all.order(:title)
   end
 
   def new
@@ -34,7 +36,7 @@ class MenusController < ApplicationController
 
   def destroy
     if @menu.destroy
-      redirect_to menus_path
+      redirect_to menus_path, notice:"削除しました"
     else
       render :show
     end
@@ -48,5 +50,11 @@ class MenusController < ApplicationController
 
   def find_params
     @menu = Menu.find(params[:id])
+  end
+
+  def confirm_user
+    if current_user.id != @menu.user_id
+      redirect_to new_user_session_path
+    end
   end
 end

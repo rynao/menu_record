@@ -22,3 +22,15 @@ html {
   background-color: #e3e548;
 }
 
+.toggler-extend {
+  border-color: #666;
+}
+
+.logo-block {
+  margin-right: auto;
+  font-weight: bold;
+}
+
+.logout-block {
+  margin-left: auto;
+}
