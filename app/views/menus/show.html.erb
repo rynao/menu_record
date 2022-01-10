@@ -13,26 +13,18 @@
     </div>
     <div class='col-md-8'>
     <div class='card-body-add'>
-      <div class='accordion-flush'>
-        <div class='menu-title accordion-header' id='accordion-button'>
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            <%= @menu.title %>
-          </button>
+        <div class='menu-title'>
+          <%= @menu.title %>
         </div>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-          <div class='recipe-url accordion-body'>
-            レシピ：
-            <% unless @menu.recipe_url.empty? %>
-              <%= link_to image_tag('recipe_image.png', size: '50x50'), "#{@menu.recipe_url}", class:'recipe-link' %>
-            <% end %>
-          </div>
+        <div class='recipe-url'>
+        レシピ：
+          <% unless @menu.recipe_url.empty? %>
+            <%= link_to image_tag('recipe_image.png', size: '50x50'), "#{@menu.recipe_url}", class:'recipe-link' %>
+          <% end %>
         </div>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-          <div class='menu-memo'>
-            memo：<%= @menu.memo %>
-          </div>
+        <div class='menu-memo'>
+          memo：<%= @menu.memo %>
         </div>
-      </div>
       <div>
       作った回数： <%= @menu.cooking_records.count %>回
       </div>
@@ -47,7 +39,7 @@
 </div>
 
 <ul class='footer-link'>
-  <li><%= link_to '編集する', edit_menu_path, class: 'menu-link' %></li>
-  <li><%= link_to '削除する', menu_path, method: :delete, class: 'menu-link' %></li>
-  <li><%= link_to '一覧へ戻る', menus_path, class: 'menu-link' %></li>
+  <li><%= link_to '編集', edit_menu_path, class: 'menu-link' %></li>
+  <li><%= link_to '削除', menu_path, method: :delete, class: 'menu-link' %></li>
+  <li><%= link_to '戻る', menus_path, class: 'menu-link' %></li>
 </ul>
