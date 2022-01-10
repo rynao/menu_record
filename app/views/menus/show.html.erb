@@ -1,22 +1,49 @@
 <%= render 'layouts/header' %>
 
 <div class='card shadow card-form show-card container-fluid'>
-  <div class ='show-img'>
-    <% if @menu.image.attached? %>
-      <%= image_tag @menu.image.variant(resize: '300x300'), class: 'menu-image' %>
-    <% else %>
-      <%= image_tag 'alt_menu_image.png', size: '200x200', class:'menu-image' %>
-    <% end %>
-  </div>
-  <div class='menu-title'>
-    <%= @menu.title %>
-  </div>
-  <div class='recipe-url'>
-    <%= link_to 'レシピURL', "#{@menu.recipe_url}", class:'recipe-link' %>
-  </div>
-  <div class='menu-memo'>
-    <%= @menu.memo %>
-  </div>
+  <div class="row g-0">
+    <div class='col-md-4'>
+      <div class ='show-img'>
+        <% if @menu.image.attached? %>
+          <%= image_tag @menu.image.variant(resize: '300x300'), class: 'menu-image' %>
+        <% else %>
+          <%= image_tag 'alt_menu_image.png', size: '200x200', class:'menu-image' %>
+        <% end %>
+      </div>
+    </div>
+    <div class='col-md-8'>
+    <div class='card-body-add'>
+      <div class='accordion-flush'>
+        <div class='menu-title accordion-header' id='accordion-button'>
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <%= @menu.title %>
+          </button>
+        </div>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class='recipe-url accordion-body'>
+            レシピ：
+            <% unless @menu.recipe_url.empty? %>
+              <%= link_to image_tag('recipe_image.png', size: '50x50'), "#{@menu.recipe_url}", class:'recipe-link' %>
+            <% end %>
+          </div>
+        </div>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+          <div class='menu-memo'>
+            memo：<%= @menu.memo %>
+          </div>
+        </div>
+      </div>
+      <div>
+      作った回数： <%= @menu.cooking_records.count %>回
+      </div>
+      <div>
+      最後に作った日： 
+      <% unless @last_cook_day.nil? %>
+        <%= @last_cook_day.start_time %>
+      <% end %>
+      </div>
+    </div>
+    </div>
 </div>
 
 <ul class='footer-link'>

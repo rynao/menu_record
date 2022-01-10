@@ -1,9 +1,9 @@
-.show-card {
+.show-img {
   text-align: center;
 }
 
-.show-img {
-  text-align: center;
+.card-body-add {
+  margin:0 30px;
 }
 
 .menu-title, .recipe-url, .menu-memo {
