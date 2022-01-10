@@ -1,26 +1,27 @@
 <nav class='navbar navbar-expand-md navbar-light bg-light justify-content-center sticky-top'>
-  <%= link_to 'Menu Records', root_path, class: 'navbar-brand logo-block' %>
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav justify-content-center">
-      <li class='nav item'>
-        <%= link_to '献立を記録する', new_cooking_record_path, class: 'nav-link' %>
-      </li>
-      <li class='nav item'>
-        <%= link_to '献立記録', cooking_records_path, class: 'nav-link' %>
-      </li>
-      <li class='nav item'>
-        <%= link_to 'レシピ一覧', menus_path, class: 'nav-link' %>
-      </li>
-      <li class='nav item'>
-        <%= link_to '新しいレシピを登録する', new_menu_path, class: 'nav-link' %>
-      </li>
-    </ul>
-    <div class='nav item logout-block'>
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link' %>
+  <div class='container'>
+    <%= link_to 'Menu Records', root_path, class: 'navbar-brand logo-block' %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class='nav item'>
+          <%= link_to '献立を記録する', new_cooking_record_path, class: 'nav-link' %>
+        </li>
+        <li class='nav item'>
+          <%= link_to '献立記録', cooking_records_path, class: 'nav-link' %>
+        </li>
+        <li class='nav item'>
+          <%= link_to 'レシピ一覧', menus_path, class: 'nav-link' %>
+        </li>
+        <li class='nav item'>
+          <%= link_to '新しいレシピを登録する', new_menu_path, class: 'nav-link' %>
+        </li>
+      </ul>
+      <div class='nav item logout-block'>
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'nav-link' %>
+      </div>
     </div>
   </div>
 </nav>
