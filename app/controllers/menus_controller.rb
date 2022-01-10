@@ -21,6 +21,7 @@ class MenusController < ApplicationController
   end
 
   def show
+    @last_cook_day = @menu.cooking_records.order(start_time: :desc).first
   end
 
   def edit
