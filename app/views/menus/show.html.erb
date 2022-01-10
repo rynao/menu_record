@@ -5,7 +5,7 @@
     <div class='col-md-4'>
       <div class ='show-img'>
         <% if @menu.image.attached? %>
-          <%= image_tag @menu.image.variant(resize: '300x300'), class: 'menu-image' %>
+          <%= image_tag @menu.image, class: 'menu-image' %>
         <% else %>
           <%= image_tag 'alt_menu_image.png', size: '200x200', class:'menu-image' %>
         <% end %>
