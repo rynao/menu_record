@@ -62,5 +62,5 @@ class CookingRecordsController < ApplicationController
   #   when /iPhone/
   #       request.variant = :mobile
   #   end
-  end
+  # end
 end
