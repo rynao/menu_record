@@ -1,0 +1,28 @@
+.cooking-card {
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.start-time {
+  padding-left: 40px;
+  padding-top: 20px;
+}
+
+.cooking-record {
+  display: flex;
+  padding: 10px 40px;
+}
+
+.record-title {
+  display: flex;
+  align-content: center;
+}
+
+.middle-link {
+  display: flex;
+  align-content: center;
+}
+
+.edit-link, .delete-link {
+  margin: 20px 10px;
+}

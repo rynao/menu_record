@@ -1,13 +1,18 @@
 <%= render 'layouts/header' %>
 
 <div class='container mt-5'>
-  <%= month_calendar events: @cooking_records do |date, cooking_records| %>
-    <%= link_to date.day, cooking_record_path(date)  %>
-
-    <% cooking_records.each do |cooking_record| %>
-      <div>
-        <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'calendar-menu-link' %>
+  <%= week_calendar events: @cooking_records do |date, cooking_records| %>
+    <div class='calendar-extend'>
+      <div class='calendar-date'>
+        <%= link_to date, cooking_record_path(date)  %>
       </div>
-    <% end %>
+      <div class='menus'>
+        <% cooking_records.each do |cooking_record| %>
+          <div>
+            <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'calendar-menu-link' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>

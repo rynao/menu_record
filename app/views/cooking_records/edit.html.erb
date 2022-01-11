@@ -9,7 +9,7 @@
   <div class='form-group'>
     <label>レシピ名</label>
     <select name='menu_id', class='form-control '>
-      <option value=''>レシピを選択</option>
+      <option value=<%= @cooking_record.menu.id %>><%= @cooking_record.menu.title %></option>
       <% Menu.all.each do |menu| %>
         <option value=<%= menu.id %>><%= menu.title %></option> 
       <% end %>

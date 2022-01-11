@@ -1,5 +1,6 @@
 .simple-calendar {
   margin: 0 auto 80px;
+  max-width: 600px;
   justify-content: center;
   padding-bottom: 40px;
 }
@@ -42,4 +43,12 @@ table th tr {
   text-decoration: none;
   table-layout: fixed;
   word-wrap: break-word;
+}
+
+.calendar-extend {
+  display: flex;
+}
+
+.menus {
+  margin-left: 40px;
 }

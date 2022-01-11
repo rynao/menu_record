@@ -1,22 +1,31 @@
 <%= render 'layouts/header' %>
 
-<% unless @cooking_record.nil? %>
-<div class='card shadow card-form container-fluid show-card'>
-  <ul class='menu-lists'>
-    <li class='menu-list'>
-      <div class='menu-title'>
-        <%= @cooking_record.start_time %>
+<div class='card shadow container-fluid cooking-card'>
+  <div class='menu-list'>
+    <% if @cooking_records.empty? %>
+      <div class='start-time'>
+        <%= @cooking_record_new.start_time %>
       </div>
-      <div class='menu-title'>
-        <%= @cooking_record.menu.title %>
-      </div>
-    </li>
-  </ul>
+    <% else %>
+        <div class='start-time'>
+          <%= @cooking_record_new.start_time %>
+        </div>
+      <% @cooking_records.each do |cooking_record| %>
+        <div class='cooking-record'>
+          <div class='record-title'>
+            <%= cooking_record.menu.title %>
+          </div>
+          <div class='middle-link'>
+            <div class='edit-link'><%= link_to image_tag('edit_button.png', size: '30x30'), edit_cooking_record_path(cooking_record.id) %></div>
+            <div class='delete-link'><%= link_to image_tag('delete_button.png', size: '30x30'), cooking_record_path(cooking_record.id), method: :delete %></div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
-<% end %>
 
 <ul class='footer-link'>
-  <li><%= link_to '編集する', edit_cooking_record_path, class: 'menu-link' %></li>
-  <li><%= link_to '削除する', cooking_record_path, method: :delete, class: 'menu-link' %></li>
-  <li><%= link_to '一覧へ戻る', cooking_records_path, class: 'menu-link' %></li>
+  <li><%= link_to '登録', new_cooking_record_path(start_time: @cooking_record_new.start_time), class: 'menu-link' %></li>
+  <li><%= link_to '戻る', cooking_records_path, class: 'menu-link' %></li>
 </ul>
