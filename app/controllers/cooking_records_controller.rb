@@ -1,13 +1,21 @@
 class CookingRecordsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_params, only: [:show, :edit, :update, :destroy]
+  before_action :find_params, only: [:edit, :update, :destroy]
 
   def index
+    detect_devise_variant
     @cooking_records = current_user.cooking_records.includes(:menu).order(start_time: "DESC")
+
+    # 以下、スマホ用ビューで使用
+    date_now = Date.current
+    firstDay = date_now.beginning_of_month
+    firstDayIndex = firstDay.wday
+    @calender = Array.new(35){|i| firstDay + (i - firstDayIndex)}
+    @weeks = ["日", "月", "火", "水", "木", "金", "土"]
   end
 
   def new
-    @cooking_record = CookingRecord.new
+    @cooking_record = CookingRecord.new(start_time: params[:start_time])
   end
 
   def create
@@ -20,7 +28,8 @@ class CookingRecordsController < ApplicationController
   end
 
   def show
-    
+    @cooking_records = CookingRecord.where(start_time: params[:id], user_id: current_user.id)
+    @cooking_record_new = CookingRecord.new(start_time: params[:id])
   end
 
   def edit
@@ -49,7 +58,17 @@ class CookingRecordsController < ApplicationController
   end
 
   def find_params
-    @cooking_record = CookingRecord.find_by(start_time: params[:id], user_id: current_user.id)
+    # @cooking_record = CookingRecord.find_by(start_time: params[:id], user_id: current_user.id)
+    @cooking_record = CookingRecord.find(params[:id])
+
   end
 
+  def detect_devise_variant
+    case request.user_agent
+    when /iPad/
+        request.variant = :mobile
+    when /iPhone/
+        request.variant = :mobile
+    end
+  end
 end
