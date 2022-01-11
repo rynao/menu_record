@@ -3,15 +3,7 @@ class CookingRecordsController < ApplicationController
   before_action :find_params, only: [:edit, :update, :destroy]
 
   def index
-    detect_devise_variant
     @cooking_records = current_user.cooking_records.includes(:menu).order(start_time: "DESC")
-
-    # 以下、スマホ用ビューで使用
-    date_now = Date.current
-    firstDay = date_now.beginning_of_month
-    firstDayIndex = firstDay.wday
-    @calender = Array.new(35){|i| firstDay + (i - firstDayIndex)}
-    @weeks = ["日", "月", "火", "水", "木", "金", "土"]
   end
 
   def new
@@ -63,12 +55,12 @@ class CookingRecordsController < ApplicationController
 
   end
 
-  def detect_devise_variant
-    case request.user_agent
-    when /iPad/
-        request.variant = :mobile
-    when /iPhone/
-        request.variant = :mobile
-    end
+  # def detect_devise_variant
+  #   case request.user_agent
+  #   when /iPad/
+  #       request.variant = :mobile
+  #   when /iPhone/
+  #       request.variant = :mobile
+  #   end
   end
 end
