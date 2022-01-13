@@ -3,33 +3,25 @@
 <div class='container mt-5'>
   <div class='row'>
     <div class='inner '>
-      <div class='row row-cols-1 row-cols-md-2 g-4'>
+      <div class='row row-cols-1 row-cols-md-3 g-4'>
         <% @menus.each do |menu| %>
         <div class='col col-extend'>
           <div class='card shadow card-extend'>
             <div class="row g-0">
-              <div class='col-md-4'>
-                <%= link_to menu_path(menu.id) do %>
-                  <% if menu.image.attached? %>
-                    <%= image_tag menu.image.variant(resize: '200x200'), class:'card-img-top' %>
-                  <% else %>
-                    <%= image_tag 'alt_menu_image.png', class:'card-img-top' %>
-                  <% end %>
-                <% end %>
-              </div>
               <div class='col-md-8 card-body-extend'>
                 <div class='card-body'>
                   <h2 class='card-title'>
                     <%= link_to menu.title, menu_path(menu.id), class:'menu-link' %>
                   </h2>
-                  <div class='recipe-url'>
-                    <% unless menu.recipe_url.empty? %>
-                      <%= link_to image_tag('recipe_image.png', size: '40x40'), "#{menu.recipe_url}", class:'recipe-link' %>
-                    <% end %>
+                  <div>
+                  作った回数： <%= menu.cooking_records.count %>回
                   </div>
-                  <div class='card-text text-muted'>
-                    <%= menu.memo %>
-                  </div>
+                  <div>
+                  <%# 最後に作った日： 
+                  <% unless menu.cooking_records.nil? %>
+                    <%# <%= menu.cooking_records.last.start_time %>
+                  <%# <% end %>
+                </div>
                 </div>
               </div>
             </div>

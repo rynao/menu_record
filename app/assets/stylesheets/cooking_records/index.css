@@ -26,6 +26,8 @@
 
 .calendar {
   margin: 20px auto;
+  height: 600px;
+  overflow: scroll;
 }
 
 .previous-month-link,

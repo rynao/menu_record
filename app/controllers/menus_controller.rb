@@ -4,7 +4,8 @@ class MenusController < ApplicationController
   before_action :confirm_user, except: [:index, :new, :create]
 
   def index
-    @menus = current_user.menus.all.order(:title)
+    @menus = current_user.menus.all
+    @cooking_records = current_user.cooking_records.includes(:menu)
   end
 
   def new
