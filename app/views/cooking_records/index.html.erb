@@ -8,8 +8,9 @@
       </div>
       <div class='menus'>
         <% cooking_records.each do |cooking_record| %>
-          <div>
-            <%= link_to cooking_record.menu.title, menu_path(cooking_record.menu.id), class:'calendar-menu-link' %>
+          <div class='card-title'>
+            <%= cooking_record.menu.title %>
+            <%= link_to image_tag('recipe_image', size: '30x30'), menu_path(cooking_record.menu.id) %>
           </div>
         <% end %>
       </div>
