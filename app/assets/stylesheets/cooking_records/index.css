@@ -34,7 +34,7 @@
 .next-month-link {
   text-decoration: none;
   color: #666;
-  border: 3px solid #666;;
+  border: 3px solid #666;
   border-radius: 6px;
   padding: 5px 10px;
 }
@@ -43,8 +43,15 @@ table th tr {
   width: 100%;
   font-size: 14px;
   text-decoration: none;
-  table-layout: fixed;
   word-wrap: break-word;
+}
+
+.table tr td:nth-child(1) {
+  width: 10%;
+}
+
+.table tr td:nth-child(2) {
+  width: 90%;
 }
 
 .calendar-extend {

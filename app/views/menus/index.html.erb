@@ -7,24 +7,21 @@
         <% @menus.each do |menu| %>
         <div class='col col-extend'>
           <div class='card shadow card-extend'>
-            <div class="row g-0">
-              <div class='col-md-8 card-body-extend'>
-                <div class='card-body'>
+                <%= link_to menu_path(menu.id) do %>
+              <div class='card-body'>
                   <h2 class='card-title'>
-                    <%= link_to menu.title, menu_path(menu.id), class:'menu-link' %>
+                    <%= menu.title %>
                   </h2>
-                  <div>
-                  作った回数： <%= menu.cooking_records.count %>回
+                  <div class='card-inner-link'>
+                    作った回数： <%= menu.cooking_records.count %>回
                   </div>
-                  <div>
-                  <%# 最後に作った日： 
-                  <% unless menu.cooking_records.nil? %>
-                    <%# <%= menu.cooking_records.last.start_time %>
-                  <%# <% end %>
-                </div>
-                </div>
+                  <div class='card-inner-link'>
+                    <% if menu.cooking_records.exists? %>
+                      最後に作った日：<%= menu.cooking_records.last.start_time %>
+                    <% end %>
+                  </div>
+                <% end %>
               </div>
-            </div>
           </div>
         </div>
         <% end %>

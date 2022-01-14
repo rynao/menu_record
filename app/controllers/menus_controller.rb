@@ -4,8 +4,12 @@ class MenusController < ApplicationController
   before_action :confirm_user, except: [:index, :new, :create]
 
   def index
-    @menus = current_user.menus.all
-    @cooking_records = current_user.cooking_records.includes(:menu)
+    @menus = Menu.find_by_sql(["
+      SELECT title,MAX(start_time),m.id
+      FROM menus m
+      LEFT OUTER JOIN cooking_records c ON m.id = c.menu_id
+      GROUP BY title
+      ORDER BY MAX(start_time)"])
   end
 
   def new
