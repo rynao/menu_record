@@ -8,6 +8,7 @@ class CookingRecordsController < ApplicationController
 
   def new
     @cooking_record = CookingRecord.new(start_time: params[:start_time])
+    @menus = Menu.all.order(:title)
   end
 
   def create
