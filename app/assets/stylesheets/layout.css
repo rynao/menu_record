@@ -1,21 +1,15 @@
 html {
   color: #666;
-  font-family: 'Unica One', "Avenir", "游ゴシック", "YuGothic", "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6", "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック", "MS P Gothic", sans-serif;
+  font-family: "Unica One", "Avenir", "游ゴシック", "YuGothic",
+    "ヒラギノ角ゴ Pro W6", "HIragino Kaku Gothic Pro W6",
+    "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック",
+    "MS P Gothic", sans-serif;
   margin: 0;
   letter-spacing: 0.15em;
 }
 
-.title {
-  font-size: 40px;
-  color: #fff;
-  background-color: #e3e548;
-  text-align: center;
-  margin: 10px 0;
-}
-
-.wrapper {
-  margin: auto;
-  text-align: center;
+.nav-extend a:hover {
+  color: #e3e548;
 }
 
 .logo-block {
@@ -23,7 +17,18 @@ html {
   font-weight: bold;
 }
 
+.logo-block a:hover {
+  color: #e3e548;
+}
+
 .logout-block {
   margin-left: auto;
-  color: #666;  
+}
+
+.logout-block a {
+  color: #666;
+}
+
+.logout-block a:hover {
+  color: #e3e548;
 }

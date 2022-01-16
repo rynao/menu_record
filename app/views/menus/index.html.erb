@@ -9,7 +9,7 @@
           <div class='card shadow card-extend'>
                 <%= link_to menu_path(menu.id) do %>
               <div class='card-body'>
-                  <h2 class='card-title'>
+                  <h2 class='card-title-link'>
                     <%= menu.title %>
                   </h2>
                   <div class='card-inner-link'>
@@ -17,7 +17,7 @@
                   </div>
                   <div class='card-inner-link'>
                     <% if menu.cooking_records.exists? %>
-                      最後に作った日：<%= menu.cooking_records.last.start_time %>
+                      最後に作った日：<%= menu.cooking_records.last.start_time.strftime("%Y/%m/%d") %>
                     <% end %>
                   </div>
                 <% end %>
