@@ -1,15 +1,17 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!
   before_action :find_params, only: [:show, :edit, :update, :destroy]
-  before_action :confirm_user, except: [:index, :new, :create]
+  before_action :confirm_user, except: [:index, :new, :create, :search]
 
   def index
-    @menus = Menu.find_by_sql(["
-      SELECT title,MAX(start_time),m.id
+    menus = Menu.find_by_sql(["
+      SELECT title, MAX(start_time), m.id
       FROM menus m
       LEFT OUTER JOIN cooking_records c ON m.id = c.menu_id
       GROUP BY title
       ORDER BY MAX(start_time)"])
+
+    @menus = current_user.menus
   end
 
   def new
@@ -46,6 +48,10 @@ class MenusController < ApplicationController
     else
       render :show
     end
+  end
+
+  def search
+    @menus = Menu.search(params[:keyword],current_user.id)
   end
 
   private
