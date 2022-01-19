@@ -30,7 +30,7 @@ class CookingRecordsController < ApplicationController
 
   def update
     if @cooking_record.update(cooking_record_params)
-      redirect_to cooking_record_path(@cooking_record.id), notice:"編集しました"
+      redirect_to cooking_record_path(@cooking_record.id)
     else
       render :edit
     end
@@ -38,7 +38,7 @@ class CookingRecordsController < ApplicationController
 
   def destroy
     if @cooking_record.destroy
-      redirect_to cooking_records_path, notice:"削除しました"
+      redirect_to cooking_records_path
     else
       render :show
     end
@@ -51,17 +51,6 @@ class CookingRecordsController < ApplicationController
   end
 
   def find_params
-    # @cooking_record = CookingRecord.find_by(start_time: params[:id], user_id: current_user.id)
     @cooking_record = CookingRecord.find(params[:id])
-
   end
-
-  # def detect_devise_variant
-  #   case request.user_agent
-  #   when /iPad/
-  #       request.variant = :mobile
-  #   when /iPhone/
-  #       request.variant = :mobile
-  #   end
-  # end
 end

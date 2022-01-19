@@ -4,14 +4,15 @@ class MenusController < ApplicationController
   before_action :confirm_user, except: [:index, :new, :create, :search]
 
   def index
-    menus = Menu.find_by_sql(["
+    user_id = current_user.id
+    @menus = Menu.find_by_sql(["
       SELECT title, MAX(start_time), m.id
       FROM menus m
       LEFT OUTER JOIN cooking_records c ON m.id = c.menu_id
+      JOIN users u ON m.user_id = u.id
+      WHERE u.id = ?
       GROUP BY title
-      ORDER BY MAX(start_time)"])
-
-    @menus = current_user.menus
+      ORDER BY MAX(start_time)",user_id])
   end
 
   def new
@@ -44,7 +45,7 @@ class MenusController < ApplicationController
 
   def destroy
     if @menu.destroy
-      redirect_to menus_path, notice:"削除しました"
+      redirect_to menus_path
     else
       render :show
     end
