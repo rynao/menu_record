@@ -1,3 +1,6 @@
+require_relative '../../lib/simple_calendar/monthly_calendar'
+
+
 class CookingRecordsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_params, only: [:edit, :update, :destroy]
@@ -8,7 +11,7 @@ class CookingRecordsController < ApplicationController
 
   def new
     @cooking_record = CookingRecord.new(start_time: params[:start_time])
-    @menus = Menu.all.order(:title)
+    @menus = current_user.menus.order(:title)
   end
 
   def create
