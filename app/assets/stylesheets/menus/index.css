@@ -4,7 +4,10 @@
 
 .col-extend {
   display: flex;
-  align-items: center;
+}
+
+.row-extend {
+  display: flex;
 }
 
 .card-extend {
@@ -26,9 +29,7 @@
   color: #e3e548;
 }
 
-.card-img-top {
-  width: 200px;
-  height: 200px;
+.card-img-extend {
   object-fit: contain;
   padding: 10px;
 }

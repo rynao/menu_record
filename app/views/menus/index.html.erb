@@ -1,7 +1,7 @@
 <%= render 'layouts/header' %>
 
 <%= form_with(url: search_menus_path, local: true, method: :get, class:'row search-form mt-3') do |form| %>
-  <div class='col-auto'>
+  <div class='col-md-3'>
     <%= form.text_field :keyword, placeholder: 'レシピを検索する', class:'form-control' %>
   </div>
   <div class='col-auto'>
@@ -10,31 +10,36 @@
 <% end %>
 
 <div class='container mt-5'>
-  <div class='row'>
-    <div class='inner '>
-      <div class='row row-cols-1 row-cols-md-3 g-4'>
-        <% @menus.each do |menu| %>
-        <div class='col col-extend'>
-          <div class='card shadow card-extend'>
-                <%= link_to menu_path(menu.id) do %>
+  <div class='row row-cols-1 row-cols-md-3 g-4'>
+    <% @menus.each do |menu| %>
+      <div class='col'>
+        <div class="card shadow mb-3" style="max-width: 450px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <% if menu.image.attached? %>
+                <%= image_tag menu.image, class: 'img-fluid rounded' %>
+              <% else %>
+                <%= image_tag 'alt_menu_image.png', class:'img-fluid' %>
+              <% end %>
+            </div>
+            <div class="col-md-8">
               <div class='card-body'>
-                  <h2 class='card-title-link'>
-                    <%= menu.title %>
-                  </h2>
-                  <div class='card-inner-link'>
-                    作った回数： <%= menu.cooking_records.count %>回
-                  </div>
-                  <div class='card-inner-link'>
-                    <% if menu.cooking_records.exists? %>
-                      最後に作った日：<%= menu.cooking_records.last.start_time.strftime("%Y/%m/%d") %>
-                    <% end %>
-                  </div>
-                <% end %>
+                <h5 class='card-title card-title-link'>
+                  <%= menu.title %>
+                </h5>
+                <div class='card-text card-inner-link'>
+                  作った回数： <%= menu.cooking_records.count %>回
+                </div>
+                <div class='card-text card-inner-link'>
+                  <% if menu.cooking_records.exists? %>
+                    最後に作った日：<%= menu.cooking_records.last.start_time.strftime("%Y/%m/%d") %>
+                  <% end %>
+                </div>
               </div>
+            </div>
           </div>
         </div>
-        <% end %>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

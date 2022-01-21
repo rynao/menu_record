@@ -14,7 +14,12 @@ html {
 
 .logo-block {
   margin-right: auto;
+}
+
+.logo-block a {
+  text-decoration: none;
   font-weight: bold;
+  color: #666;
 }
 
 .logo-block a:hover {
