@@ -5,7 +5,7 @@ html {
     "HIragino Kaku Gothic Pro", Osaka, Meiryo, "メイリオ", "ＭＳ Ｐゴシック",
     "MS P Gothic", sans-serif;
   margin: 0;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.05em;
 }
 
 .nav-extend a:hover {

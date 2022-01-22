@@ -1,18 +1,10 @@
-.inner {
+.card-link {
+  text-decoration: none;
   color: #666;
 }
 
-.col-extend {
-  display: flex;
-}
-
-.row-extend {
-  display: flex;
-}
-
-.card-extend {
-  text-align: center;
-  width: 600px;
+.card-link:hover {
+  color: #e3e548;
 }
 
 .card-title-link {
@@ -20,18 +12,17 @@
   font-weight: bold;
 }
 
-.card-extend a {
-  text-decoration: none;
-  color: #666;
-}
-
-.card-extend a:hover {
-  color: #e3e548;
+.card-index-img {
+  text-align: center;
 }
 
 .card-img-extend {
   object-fit: contain;
   padding: 10px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  }
 }
 
 .card-inner-link {
