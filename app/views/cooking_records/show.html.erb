@@ -17,7 +17,7 @@
           </div>
           <div class='middle-link'>
             <div class='edit-link'><%= link_to image_tag('edit_button.png', size: '30x30'), edit_cooking_record_path(cooking_record.id) %></div>
-            <div class='delete-link'><%= link_to image_tag('delete_button.png', size: '30x30'), cooking_record_path(cooking_record.id), method: :delete %></div>
+            <div class='delete-link'><%= link_to image_tag('delete_button.png', size: '30x30'), cooking_record_path(cooking_record.id), method: :delete, data: {confirm: "削除しますか？"} %></div>
           </div>
         </div>
       <% end %>
