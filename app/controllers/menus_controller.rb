@@ -11,7 +11,7 @@ class MenusController < ApplicationController
       LEFT OUTER JOIN cooking_records c ON m.id = c.menu_id
       JOIN users u ON m.user_id = u.id
       WHERE u.id = ?
-      GROUP BY title
+      GROUP BY m.id
       ORDER BY MAX(start_time)",user_id])
   end
 

@@ -16,13 +16,26 @@
     <tbody>
         <tr>
           <% date_range.each do |day| %>
-            <%= content_tag :tr, class: calendar.td_classes_for(day) do %>
-              <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <%= t('date.abbr_day_names')[day.wday] %><td>
-                <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                  <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-                <% else %>
-                  <% passed_block.call day, sorted_events.fetch(day, []) %>
+            <% if day == Date.current %>
+              <%= content_tag :tr, class: calendar.td_classes_for(day), id: 'today' do %>
+                <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                  <%= t('date.abbr_day_names')[day.wday] %><td>
+                  <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                    <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                  <% else %>
+                    <% passed_block.call day, sorted_events.fetch(day, []) %>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% else %>
+              <%= content_tag :tr, class: calendar.td_classes_for(day) do %>
+                <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                  <%= t('date.abbr_day_names')[day.wday] %><td>
+                  <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                    <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+                  <% else %>
+                    <% passed_block.call day, sorted_events.fetch(day, []) %>
+                  <% end %>
                 <% end %>
               <% end %>
             <% end %>
