@@ -18,7 +18,7 @@
           <div class="row g-0 align-items-center">
             <div class="col-sm-4 card-index-img">
               <% if menu.image.attached? %>
-                <%= image_tag menu.image.variant(resize: "200x200", gravity: "center", crop:"200x200+0+0").processed, class: 'card-img-extend img-fluid rounded' %>
+                <%= image_tag menu.image.variant(resize: "200x200", gravity: "center", crop:"200x200+0+0"), class: 'card-img-extend img-fluid rounded' %>
               <% else %>
                 <%= image_tag 'alt_menu_image.png', :size => '30x30', class:'card-img-extend img-fluid' %>
               <% end %>
