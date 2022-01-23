@@ -33,7 +33,7 @@
 .next-month-link {
   text-decoration: none;
   color: #666;
-  border: 3px solid #666;
+  border: 1px solid #666;
   border-radius: 6px;
   padding: 5px 10px;
 }
@@ -59,4 +59,9 @@ table th tr {
 
 .menus {
   margin-left: 40px;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #666;
 }

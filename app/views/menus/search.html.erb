@@ -1,39 +1,43 @@
 <%= render 'layouts/header' %>
 
 <%= form_with(url: search_menus_path, local: true, method: :get, class:'row search-form mt-3') do |form| %>
-  <div class='col-xl-4 col-sm-6'>
+  <div class='col-xl-4 col-sm-6 col-9'>
     <%= form.text_field :keyword, placeholder: 'レシピを検索する', class:'form-control' %>
   </div>
-  <div class='col-auto'>
-    <%= form.submit "検索", class: "btn btn-light" %>
+  <div class='col-auto search-btn'>
+    <%= form.button class: "btn btn-secondary" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
   </div>
 <% end %>
 
 <div class='container mt-5'>
-  <div class='row row-cols-xl-3 row-cols-2 g-4'>
+  <div class='row row-cols-xl-3 row-cols-sm-2 row-cols-1 g-4'>
     <% @menus.each do |menu| %>
       <div class='col'>
       <%= link_to menu_path(menu.id), class:'card-link' do %>
-        <div class="card shadow mb-3">
-          <div class="row g-0 align-items-center">
-            <div class="col-sm-4 card-index-img">
+        <div class="card shadow mb-md-3" style="height: 130px">
+          <div class="row g-0 align-items-center h-100">
+            <div class="col-4 card-index-img h-100 d-flex align-items-center justify-content-center">
+              <div>
               <% if menu.image.attached? %>
-                <%= image_tag menu.image.variant(resize: "200x200", gravity: "center", crop:"200x200+0+0").processed, class: 'card-img-extend img-fluid rounded' %>
+                <%= image_tag menu.image.variant(resize: "150x150", gravity: "center", crop:"110x110+0+0"), class: 'card-img-extend img-fluid rounded' %>
               <% else %>
-                <%= image_tag 'alt_menu_image.png', :size => '50x50', class:'card-img-extend img-fluid' %>
+                <%= image_tag 'alt_menu_image.png', :size => '100x100', class:'card-img-extend img-fluid' %>
               <% end %>
+              </div>
             </div>
-            <div class="col-sm-8">
+            <div class="col-8">
               <div class='card-body'>
-                <h5 class='fw-bold mb-3'>
+                <h6 class='fw-bold mb-3'>
                   <%= menu.title %>
-                </h5>
-                <div class='card-text card-inner-link'>
+                </h6>
+                <div class='card-text'>
                   作った回数： <%= menu.cooking_records.count %>回
                 </div>
-                <div class='card-text card-inner-link'>
+                <div class='card-text'>
                   <% if menu.cooking_records.exists? %>
-                    最後に作った日：<%= menu.cooking_records.last.start_time.strftime("%Y/%m/%d") %>
+                    前回：<%= menu.cooking_records.last.start_time.strftime("%Y/%m/%d") %>
                   <% end %>
                 </div>
               </div>

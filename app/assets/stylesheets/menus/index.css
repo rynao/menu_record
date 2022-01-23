@@ -7,11 +7,6 @@
   color: #e3e548;
 }
 
-.card-title-link {
-  font-size: 16px;
-  font-weight: bold;
-}
-
 .card-index-img {
   text-align: center;
 }
@@ -19,38 +14,15 @@
 .card-img-extend {
   object-fit: contain;
   padding: 10px;
-  width: 150px;
-  height: 150px;
   object-fit: cover;
-}
-
-.card-inner-link {
-  font-size: 12px;
-}
-
-.card-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #666;
-}
-
-.menu-link:hover {
-  text-decoration: none;
-  color: #0d6efd;
 }
 
 .card-text {
   font-size: 12px;
 }
 
-.menu-link,
-.recipe-link {
-  text-decoration: none;
-  color: #666;
-}
-
 .search-form {
   display: flex;
   justify-content: center;
-  margin: 20px auto;
+  margin: 20px 0;
 }
