@@ -1,14 +1,14 @@
 <%= render 'layouts/header' %>
 
 <%= form_with(url: search_menus_path, local: true, method: :get, class:'row search-form mt-3') do |form| %>
-  <div class='col-xl-4 col-sm-6 col-9'>
-    <%= form.text_field :keyword, placeholder: 'レシピを検索する', class:'form-control' %>
-  </div>
-  <div class='col-auto search-btn'>
-    <%= form.button class: "btn btn-secondary" do %>
+  <div class='col-xl-4 col-sm-6'>
+  <div class='input-group'>
+    <%= form.text_field :keyword, placeholder: 'レシピを検索する', class:'form-control', aria:{ describedby:"button-addon1"} %>
+    <%= form.button class: "btn btn-secondary", id:"button-addon1" do %>
       <i class="fas fa-search"></i>
     <% end %>
   </div>
+</div>
 <% end %>
 
 <div class='container mt-5'>
