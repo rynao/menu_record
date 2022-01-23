@@ -23,6 +23,18 @@
   align-content: center;
 }
 
-.edit-link, .delete-link {
+.edit-link,
+.delete-link {
   margin: 20px 10px;
+}
+
+.menu-link,
+.recipe-link {
+  text-decoration: none;
+  color: #666;
+}
+
+.menu-link:hover {
+  text-decoration: none;
+  color: #0d6efd;
 }
