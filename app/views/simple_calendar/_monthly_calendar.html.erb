@@ -1,14 +1,14 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
     <div>
-    <%= link_to t('simple_calendar.previous', default: '＜＜'), calendar.url_for_previous_view, class: 'previous-month-link' %>
+    <%= link_to t('simple_calendar.previous', default: '＜＜'), calendar.url_for_previous_view, class: 'previous-month-link fs-3' %>
     </div>
     <div>
       <div class="calendar-year"><%= start_date.year %>年</div>
       <div class='calendar-month'> <%= t('date.month_names')[start_date.month] %></div>
     </div>
     <div>
-    <%= link_to t('simple_calendar.next', default: '＞＞'), calendar.url_for_next_view, class: 'next-month-link' %>
+    <%= link_to t('simple_calendar.next', default: '＞＞'), calendar.url_for_next_view, class: 'next-month-link fs-3' %>
     </div>
   </div>
   <div class="calendar">
@@ -19,7 +19,6 @@
             <% if day == Date.current %>
               <%= content_tag :tr, class: calendar.td_classes_for(day), id: 'today' do %>
                 <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-                  <%= t('date.abbr_day_names')[day.wday] %><td>
                   <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                     <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
                   <% else %>
@@ -30,7 +29,6 @@
             <% else %>
               <%= content_tag :tr, class: calendar.td_classes_for(day) do %>
                 <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-                  <%= t('date.abbr_day_names')[day.wday] %><td>
                   <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                     <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
                   <% else %>

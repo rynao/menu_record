@@ -2,15 +2,20 @@
 
 <div class='container mt-2'>
 <%= SimpleCalendar::MonthlyCalendar.new(self, {events: @cooking_records},).render() do |date, cooking_records| %>
-    <div class='calendar-extend'>
-      <div class='calendar-date'>
+    <div class='d-flex'>
+      <div class='calendar-date d-flex flex-column justify-content-center align-items-center'>
+        <div class='fs-5'>
         <%= link_to date.day, cooking_record_path(date)  %>
+        </div>
+        <div class=''>
+        <%= t('date.abbr_day_names')[date.wday] %>
+        </div>
       </div>
       <div class='menus'>
         <% cooking_records.each do |cooking_record| %>
           <div class='card-title'>
             <%= cooking_record.menu.title %>
-            <%= link_to image_tag('recipe_image', size: '30x30'), menu_path(cooking_record.menu.id) %>
+            <%= link_to image_tag('recipe_image', size: '20x20'), menu_path(cooking_record.menu.id) %>
           </div>
         <% end %>
       </div>
