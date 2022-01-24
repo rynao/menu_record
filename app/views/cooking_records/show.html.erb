@@ -6,16 +6,19 @@
       <div class='start-time'>
         <%= @cooking_record_new.start_time %>
       </div>
+      <div class='no-record-word'>
+        作った記録はありません
+      </div>
     <% else %>
         <div class='start-time'>
           <%= @cooking_record_new.start_time %>
         </div>
       <% @cooking_records.each do |cooking_record| %>
-        <div class='cooking-record'>
-          <div class='record-title'>
+        <div class='cooking-record d-flex align-items-center'>
+          <div class=''>
             <%= cooking_record.menu.title %>
           </div>
-          <div class='middle-link'>
+          <div class='d-flex align-content-center ms-5'>
             <div class='edit-link'><%= link_to image_tag('edit_button.png', size: '30x30'), edit_cooking_record_path(cooking_record.id) %></div>
             <div class='delete-link'><%= link_to image_tag('delete_button.png', size: '30x30'), cooking_record_path(cooking_record.id), method: :delete, data: {confirm: "削除しますか？"} %></div>
           </div>
