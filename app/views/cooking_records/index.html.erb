@@ -5,9 +5,9 @@
     <div class='d-flex'>
       <div class='calendar-date d-flex flex-column justify-content-center align-items-center'>
         <div class='fs-5'>
-        <%= link_to date.day, cooking_record_path(date)  %>
+        <%= link_to date.day, cooking_record_path(date), class:'date-link' %>
         </div>
-        <div class=''>
+        <div class='text-secondary'>
         <%= t('date.abbr_day_names')[date.wday] %>
         </div>
       </div>

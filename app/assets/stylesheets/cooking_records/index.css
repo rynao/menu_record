@@ -36,11 +36,29 @@
   padding: 5px 10px;
 }
 
+.previous-month-link:hover {
+  text-decoration: none;
+  color: #e3e548;
+}
+
+.next-month-link:hover {
+  text-decoration: none;
+  color: #e3e548;
+}
+
 table th tr {
   width: 100%;
   font-size: 14px;
   text-decoration: none;
   word-wrap: break-word;
+}
+
+.date-link {
+  color: #666;
+}
+
+.date-link:hover {
+  color: #e3e548;
 }
 
 .menus {
