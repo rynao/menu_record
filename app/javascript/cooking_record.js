@@ -1,8 +1,6 @@
-const addurl = () => {
+window.onload = function () {
   const url = location.pathname;
-  if (url.includes("cooking_record")) {
-    history.pushState({}, "", "#today");
+  if (url.includes("cooking_records")) {
+    location.hash = "today";
   }
 };
-
-window.addEventListener("DOMContentLoaded", addurl);
