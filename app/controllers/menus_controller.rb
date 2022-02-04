@@ -12,7 +12,7 @@ class MenusController < ApplicationController
       JOIN users u ON m.user_id = u.id
       WHERE u.id = ?
       GROUP BY m.id
-      ORDER BY MAX(start_time)",user_id])
+      ORDER BY MAX(start_time)",user_id])    
   end
 
   def new

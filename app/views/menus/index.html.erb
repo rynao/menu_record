@@ -37,7 +37,7 @@
                 </div>
                 <div class='card-text'>
                   <% if menu.cooking_records.exists? %>
-                    前回：<%= menu.cooking_records.last.start_time.strftime("%Y/%m/%d") %>
+                    前回：<%= menu.cooking_records.order(start_time: :desc).first.start_time.strftime("%Y/%m/%d") %>
                   <% end %>
                 </div>
               </div>
