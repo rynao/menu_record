@@ -4,11 +4,11 @@
 <%= form_with model: @cooking_record, local: true do |f| %>
   <div class='form-group'>
     <label>作った日</label>
-  <%= f.date_field :start_time, value: @cooking_record.start_time, class:'form-control ' %>
+  <%= f.date_field :start_time, value: @cooking_record.start_time, class:'form-control' %>
   </div>
   <div class='form-group'>
     <label>レシピ名</label>
-    <select name='menu_id', class='form-control '>
+    <select name='menu_id', class='form-control'>
       <option value=''>レシピを選択</option>
       <% @menus.each do |menu| %>
         <option value=<%= menu.id %>><%= menu.title %></option> 
