@@ -29,7 +29,7 @@
       作った回数： <%= @menu.cooking_records.count %>回
       </div>
       <div>
-      最後に作った日： 
+      前回： 
       <% unless @last_cook_day.nil? %>
         <%= @last_cook_day.start_time %>
       <% end %>
@@ -37,9 +37,10 @@
     </div>
     </div>
 </div>
-
+  <%= link_to '作った日を登録', new_cooking_record_path(menu_id: @menu.id), class: 'btn btn-outline-secondary mt-3' %></li>
+<div>
+</div>
 <ul class='footer-link'>
-  <li><%= link_to '作った日を登録', new_cooking_record_path(menu_id: @menu.id), class: 'menu-link' %></li>
   <li><%= link_to '編集', edit_menu_path, class: 'menu-link' %></li>
   <li><%= link_to '削除', menu_path, method: :delete, class: 'menu-link', data: {confirm: "削除しますか？"} %></li>
   <li><%= link_to '戻る', menus_path, class: 'menu-link' %></li>
