@@ -16,11 +16,11 @@ class MenusController < ApplicationController
   end
 
   def new
-    @menu = Menu.new
+    @menu = MenuCookingRecords.new
   end
 
   def create
-    @menu = Menu.new(menu_params)
+    @menu = MenuCookingRecords.new(menu_cooking_records_params)
     if @menu.save
       redirect_to root_path
     else
@@ -69,5 +69,9 @@ class MenusController < ApplicationController
     if current_user.id != @menu.user_id
       redirect_to new_user_session_path
     end
+  end
+
+  def menu_cooking_records_params
+    params.require(:menu_cooking_records).permit(:title, :recipe_url, :memo, :image, :start_time).merge(user_id: current_user.id)
   end
 end

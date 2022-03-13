@@ -10,12 +10,13 @@ class CookingRecordsController < ApplicationController
   end
 
   def new
-    @cooking_record = CookingRecord.new(start_time: params[:start_time])
+    @cooking_record = CookingRecord.new(start_time: params[:start_time], menu_id: params[:menu_id])
     @menus = current_user.menus.order(:title)
   end
 
   def create
     @cooking_record = CookingRecord.new(cooking_record_params)
+    @menus = current_user.menus.order(:title)
     if @cooking_record.save
       redirect_to cooking_records_path
     else
@@ -50,7 +51,7 @@ class CookingRecordsController < ApplicationController
   private
 
   def cooking_record_params
-    params.require(:cooking_record).permit(:start_time).merge(user_id: current_user.id, menu_id: params[:menu_id])
+    params.require(:cooking_record).permit(:start_time, :menu_id).merge(user_id: current_user.id)
   end
 
   def find_params
