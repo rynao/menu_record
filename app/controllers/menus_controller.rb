@@ -6,7 +6,7 @@ class MenusController < ApplicationController
   def index
     user_id = current_user.id
     @menus = Menu.find_by_sql(["
-      SELECT title, MAX(start_time), m.id
+      SELECT title, MAX(start_time), m.id, rate
       FROM menus m
       LEFT OUTER JOIN cooking_records c ON m.id = c.menu_id
       JOIN users u ON m.user_id = u.id
@@ -58,7 +58,7 @@ class MenusController < ApplicationController
   private
 
   def menu_params
-    params.require(:menu).permit(:title, :recipe_url, :memo, :image).merge(user_id: current_user.id)
+    params.require(:menu).permit(:title, :recipe_url, :memo, :image, :rate).merge(user_id: current_user.id)
   end
 
   def find_params
@@ -72,6 +72,6 @@ class MenusController < ApplicationController
   end
 
   def menu_cooking_records_params
-    params.require(:menu_cooking_records).permit(:title, :recipe_url, :memo, :image, :start_time).merge(user_id: current_user.id)
+    params.require(:menu_cooking_records).permit(:title, :recipe_url, :memo, :image, :start_time, :rate).merge(user_id: current_user.id)
   end
 end
