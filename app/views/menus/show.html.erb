@@ -50,6 +50,7 @@
             <span class="star" data-star=<%="#{i+@menu.rate+1}"%> id=<%="star#{i+@menu.rate+1}"%>>☆</span>
           <% end %>
         <% end %>
+        <input type='hidden' value=<%= @menu.id %> id='menu_id'>
       </div>
     </div>
     </div>

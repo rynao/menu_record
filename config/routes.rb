@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     end
   end
   resources :cooking_records
+  # resources :ratings, only: [:create, :update]
+  post 'ratings', to: 'ratings#update'
 end

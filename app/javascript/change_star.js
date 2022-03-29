@@ -1,5 +1,7 @@
 const changeStar = () => {
   const stars = document.getElementsByClassName("star");
+  const menuId = document.getElementById("menu_id").value;
+  const token = document.getElementsByName("csrf-token")[0].content;
   for (let i = 0; i < stars.length; i++) {
     stars[i].addEventListener("click", function () {
       countStars = starCount(stars);
@@ -13,6 +15,19 @@ const changeStar = () => {
           stars[i].textContent = "★";
         }
       }
+      countStars = starCount(stars);
+      console.log(countStars);
+      const params = `id=${menuId}&rate=${countStars}`;
+      const url = `/ratings?${params}`;
+      console.log(url);
+      const XHR = new XMLHttpRequest();
+      XHR.open("POST", url, true);
+      XHR.setRequestHeader(
+        "content-type",
+        "application/x-www-form-urlencoded;charset=UTF-8"
+      );
+      XHR.setRequestHeader("X-CSRF-Token", token);
+      XHR.send();
     });
   }
 
