@@ -12,6 +12,12 @@
 <% end %>
 
 <div class='container mt-5'>
+  <select name='sort' class='form-control col-xl-2 col-md-5 my-2' id='sort-form'>
+    <option>並び替え</option>
+    <option value='repeating'>作った回数順</option>
+    <option value='rating'>評価が高い順</option>
+    <option value='date'>作った日付順</option>
+  </select>
   <div class='row row-cols-xl-3 row-cols-sm-2 row-cols-1 g-4'>
     <% @menus.each do |menu| %>
       <div class='col'>
