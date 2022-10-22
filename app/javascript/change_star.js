@@ -16,10 +16,8 @@ const changeStar = () => {
         }
       }
       countStars = starCount(stars);
-      console.log(countStars);
       const params = `id=${menuId}&rate=${countStars}`;
       const url = `/ratings?${params}`;
-      console.log(url);
       const XHR = new XMLHttpRequest();
       XHR.open("POST", url, true);
       XHR.setRequestHeader(

@@ -1,18 +1,25 @@
 class MenusController < ApplicationController
   before_action :authenticate_user!
   before_action :find_params, only: [:show, :edit, :update, :destroy]
-  before_action :confirm_user, except: [:index, :new, :create, :search]
+  before_action :confirm_user, except: [:index, :new, :create, :search, :sort]
 
   def index
-    user_id = current_user.id
-    @menus = Menu.find_by_sql(["
-      SELECT title, MAX(start_time), m.id, rate
-      FROM menus m
-      LEFT OUTER JOIN cooking_records c ON m.id = c.menu_id
-      JOIN users u ON m.user_id = u.id
-      WHERE u.id = ?
-      GROUP BY m.id
-      ORDER BY MAX(start_time)",user_id])    
+      user_id = current_user.id
+      @menus = Menu.find_by_sql(["
+        SELECT title, MAX(start_time), m.id, rate
+        FROM menus m
+        LEFT OUTER JOIN cooking_records c ON m.id = c.menu_id
+        JOIN users u ON m.user_id = u.id
+        WHERE u.id = ?
+        GROUP BY m.id
+        ORDER BY MAX(start_time)",user_id])
+
+      # @menus = Menu.left_joins(:cooking_records, :user)
+      #              .select('menus.*, max(cooking_records.start_time)')
+      #              .where(user_id: current_user.id)
+      #              .group('id')
+    
+      
   end
 
   def new
@@ -53,6 +60,31 @@ class MenusController < ApplicationController
 
   def search
     @menus = Menu.search(params[:keyword],current_user.id)
+  end
+
+  def sort
+    case params[:sort]
+    when 'standard'
+      user_id = current_user.id
+      @menus = Menu.find_by_sql(["
+        SELECT title, MAX(start_time), m.id, rate
+        FROM menus m
+        LEFT OUTER JOIN cooking_records c ON m.id = c.menu_id
+        JOIN users u ON m.user_id = u.id
+        WHERE u.id = ?
+        GROUP BY m.id
+        ORDER BY MAX(start_time)",user_id])
+    when 'repeating'
+      @menus = Menu.all
+    when 'rating'
+      @menus = current_user.menus.order(rate: :desc)
+    when 'date'
+      @menus = Menu.all
+    end
+      # @menus = Menu.left_joins(:cooking_records, :user)
+      #              .select('menus.*, max(cooking_records.start_time)')
+      #              .where(user_id: current_user.id)
+      #              .group('id')
   end
 
   private
