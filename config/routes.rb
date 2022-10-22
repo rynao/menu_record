@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   resources :menus do
     collection do
       get 'search'
+      get 'sort'
     end
   end
   resources :cooking_records
-  # resources :ratings, only: [:create, :update]
   post 'ratings', to: 'ratings#update'
 end

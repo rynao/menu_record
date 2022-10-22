@@ -12,40 +12,14 @@
 <% end %>
 
 <div class='container mt-5'>
-  <div class='row row-cols-xl-3 row-cols-sm-2 row-cols-1 g-4'>
-    <% @menus.each do |menu| %>
-      <div class='col'>
-      <%= link_to menu_path(menu.id), class:'card-link' do %>
-        <div class="card shadow mb-md-3" style="height: 130px">
-          <div class="row g-0 align-items-center h-100">
-            <div class="col-4 card-index-img h-100 d-flex align-items-center justify-content-center">
-              <div>
-              <% if menu.image.attached? %>
-                <%= image_tag menu.image.variant(resize: "150x150", gravity: "center", crop:"110x110+0+0"), class: 'card-img-extend img-fluid rounded' %>
-              <% else %>
-                <%= image_tag 'alt_menu_image.png', :size => '100x100', class:'card-img-extend img-fluid' %>
-              <% end %>
-              </div>
-            </div>
-            <div class="col-8">
-              <div class='card-body'>
-                <h6 class='fw-bold mb-3'>
-                  <%= menu.title %>
-                </h6>
-                <div class='card-text'>
-                  作った回数： <%= menu.cooking_records.count %>回
-                </div>
-                <div class='card-text'>
-                  <% if menu.cooking_records.exists? %>
-                    前回：<%= menu.cooking_records.last.start_time.strftime("%Y/%m/%d") %>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
-    <% end %>
+  <select name='sort' class='form-control col-xl-2 col-md-5 my-2' id='sort-form'>
+    <option value='standard'>並び替え</option>
+    <option value='repeating'>作った回数順</option>
+    <option value='rating'>評価が高い順</option>
+    <option value='date'>作った日付順</option>
+  </select>
+  <div class='row row-cols-xl-3 row-cols-sm-2 row-cols-1 g-4' id='menu-index'>
+    <%= render 'menu_index', menus: @menus %>
   </div>
 </div>
+
